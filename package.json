@@ -22,10 +22,12 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@types/moment": "^2.13.0",
+    "''trap": "^3.3.7",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
-    "rxjs": "^5.4.2",
+    "popper": "^1.0.0",
+    "rxjs": "^5.4.3",
     "tether": "^1.4.0",
     "zone.js": "^0.8.14"
   },

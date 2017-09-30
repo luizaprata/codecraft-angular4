@@ -1,0 +1,6 @@
+<!--Angular! v${VERSION.full}-->
+<h1 #header> View Jokes </h1>
+<app-joke-form (jokeCreated)="addJoke($event)"></app-joke-form>
+<app-joke *ngFor="let item of jokes" [joke]="item"></app-joke>
+
+<app-observable-form></app-observable-form>

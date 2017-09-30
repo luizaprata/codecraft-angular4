@@ -1,0 +1,5 @@
+<form name="jokeForm" [formGroup]="form">
+    <input type="text" name="setup" placeholder="setup" #setup value="lalalalal">
+    <input type="text" name="punchline" placeholder="punchline" #punchline  value="loloolol">
+    <button type="button" (click)="onAdd(setup.value, punchline.value)">ADD</button>
+</form>
