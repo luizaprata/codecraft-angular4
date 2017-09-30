@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 
 @Component({
-    selector: 'app-model-form',
-    templateUrl: './model-form.component.html',
-    styleUrls: ['./model-form.component.css']
+  selector: 'app-reactive-model-form2',
+  templateUrl: './reactive-model-form2.component.html',
+  styleUrls: ['./reactive-model-form2.component.css']
 })
-export class ModelFormComponent implements OnInit {
+export class ReactiveModelForm2Component implements OnInit {
 
     langs: Object[] = [
         {name: 'English', value: 'en'},
@@ -41,4 +41,5 @@ export class ModelFormComponent implements OnInit {
             this.myFormGroup.reset();
         }
     }
+
 }

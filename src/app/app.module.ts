@@ -11,8 +11,9 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {AvatarPipe} from "./pipes/avatar.pipe";
 import {CardHoverDirective} from './directives/card-hover.directive';
 import {CleanPipe} from './pipes/clean.pipe';
-import { ModelFormComponent } from './components/model-form/model-form.component';
 import { ReactiveModelFormComponent } from './components/reactive-model-form/reactive-model-form.component';
+import { TemplateDrivenFormComponent } from './components/template-driven-form/template-driven-form.component';
+import { ReactiveModelForm2Component } from './components/reactive-model-form2/reactive-model-form2.component';
 
 @NgModule({
     declarations: [
@@ -25,8 +26,9 @@ import { ReactiveModelFormComponent } from './components/reactive-model-form/rea
         AvatarPipe,
         CardHoverDirective,
         CleanPipe,
-        ModelFormComponent,
-        ReactiveModelFormComponent
+        ReactiveModelFormComponent,
+        TemplateDrivenFormComponent,
+        ReactiveModelForm2Component
     ],
     imports: [
         BrowserModule, ReactiveFormsModule

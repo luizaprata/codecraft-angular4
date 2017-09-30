@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModelFormComponent } from './model-form.component';
+import { ReactiveModelForm2Component } from './reactive-model-form2.component';
 
-describe('ModelFormComponent', () => {
-  let component: ModelFormComponent;
-  let fixture: ComponentFixture<ModelFormComponent>;
+describe('ReactiveModelForm2Component', () => {
+  let component: ReactiveModelForm2Component;
+  let fixture: ComponentFixture<ReactiveModelForm2Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModelFormComponent ]
+      declarations: [ ReactiveModelForm2Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModelFormComponent);
+    fixture = TestBed.createComponent(ReactiveModelForm2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
