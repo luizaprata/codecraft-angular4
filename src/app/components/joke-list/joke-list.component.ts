@@ -1,6 +1,6 @@
 import {Component, OnInit, AfterContentInit, ViewChild, AfterViewInit, ElementRef, ViewChildren, QueryList, ContentChild} from '@angular/core';
 import {JokeComponent} from "../joke/joke.component";
-import {Joke} from "../domain-model/joke";
+import {Joke} from "../../domain-model/joke";
 
 
 @Component({

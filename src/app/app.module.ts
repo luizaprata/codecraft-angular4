@@ -7,13 +7,13 @@ import {JokeComponent} from './components/joke/joke.component';
 import {JokeFormComponent} from './components/joke-form/joke-form.component';
 import {JokeListComponent} from './components/joke-list/joke-list.component';
 import {ObservableFormComponent} from './components/observable-form/observable-form.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {AvatarPipe} from "./pipes/avatar.pipe";
 import {CardHoverDirective} from './directives/card-hover.directive';
 import {CleanPipe} from './pipes/clean.pipe';
-import { ReactiveModelFormComponent } from './components/reactive-model-form/reactive-model-form.component';
-import { TemplateDrivenFormComponent } from './components/template-driven-form/template-driven-form.component';
-import { ReactiveModelForm2Component } from './components/reactive-model-form2/reactive-model-form2.component';
+import {ReactiveModelForm2Component} from "./components/reactive-model-form2/reactive-model-form2.component";
+import {TemplateModelFormComponent} from "./components/template-model-form/template-model-form.component";
+import {ReactiveModelFormComponent} from "./components/reactive-model-form/reactive-model-form.component";
 
 @NgModule({
     declarations: [
@@ -27,11 +27,11 @@ import { ReactiveModelForm2Component } from './components/reactive-model-form2/r
         CardHoverDirective,
         CleanPipe,
         ReactiveModelFormComponent,
-        TemplateDrivenFormComponent,
-        ReactiveModelForm2Component
+        ReactiveModelForm2Component,
+        TemplateModelFormComponent
     ],
     imports: [
-        BrowserModule, ReactiveFormsModule
+        BrowserModule, ReactiveFormsModule, FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

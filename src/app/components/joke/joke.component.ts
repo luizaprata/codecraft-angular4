@@ -10,7 +10,7 @@ import {
     AfterViewChecked,
     OnDestroy
 } from '@angular/core';
-import {Joke} from "../domain-model/joke";
+import {Joke} from "../../domain-model/joke";
 
 @Component({
     selector: 'app-joke',

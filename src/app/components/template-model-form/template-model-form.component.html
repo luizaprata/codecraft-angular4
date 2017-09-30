@@ -1,0 +1,53 @@
+<hr>
+<h1>TemplateModelFormComponent</h1>
+
+<form action="" novalidate #f="ngForm">
+    <fieldset ngModelGroup="name">
+        <div class="form-group">
+            <label for="form-first-name">First Name:</label>
+            <input type="text"
+                   id="form-first-name"
+                   class="form-control"
+                   name="firstName"
+                   [ngModel]="email"
+                   (ngModelChange)="email = $event">
+        </div>
+        <div class="form-group">
+            <label for="form-last-name">Last Name:</label>
+            <input type="text"
+                   id="form-last-name"
+                   class="form-control"
+                   name="lastName"
+                   ngModel>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <label for="form-email">Email:</label>
+        <input type="email"
+               id="form-email"
+               class="form-control"
+               name="email"
+               ngModel>
+    </div>
+    <div class="form-group">
+        <label for="form-password">Password:</label>
+        <input type="password"
+               id="form-password"
+               class="form-control"
+               name="password"
+               ngModel>
+    </div>
+    <div class="form-group">
+        <label for="form-lang">Language:</label>
+        <select id="form-lang" class="form-control"
+                name="language"
+                ngModel>
+            <option value="">Please select a language</option>
+            <option *ngFor="let lang of langs" [value]="lang.value">{{lang.name}}</option>
+        </select>
+    </div>
+
+    <pre>{{f.value | json}}</pre>
+
+    <button type="submit" class="btn">send</button>
+</form>

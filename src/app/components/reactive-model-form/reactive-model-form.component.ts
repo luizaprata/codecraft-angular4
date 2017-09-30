@@ -1,5 +1,3 @@
-
-
 import {Component, OnInit} from '@angular/core';
 import 'rxjs/Rx';
 import {FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
@@ -12,8 +10,6 @@ import {FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms";
     styleUrls: ['./reactive-model-form.component.css']
 })
 export class ReactiveModelFormComponent implements OnInit {
-
-
     form: FormGroup;
     comment = new FormControl("", Validators.required);
     name = new FormControl("", Validators.required);
