@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Signup} from "../../domain-model/signup";
 
 @Component({
     selector: 'app-template-model-form',
@@ -7,7 +8,7 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TemplateModelFormComponent implements OnInit {
 
-    email:string = "";
+    model: Signup = new Signup();
 
     langs: Object[] = [
         {name: 'English', value: 'en'},
@@ -19,6 +20,10 @@ export class TemplateModelFormComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    onSubmit() {
+        console.log("whisper in your ear")
     }
 
 }

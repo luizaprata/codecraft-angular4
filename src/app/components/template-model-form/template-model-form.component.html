@@ -1,47 +1,90 @@
 <hr>
 <h1>TemplateModelFormComponent</h1>
 
-<form action="" novalidate #f="ngForm">
+<form action="" novalidate #f="ngForm" (ngSubmit)="onSubmit()">
     <fieldset ngModelGroup="name">
-        <div class="form-group">
+        <div class="form-group"
+             [ngClass]="{
+                'has-success': firstName.valid && (firstName.dirty || firstName.touched),
+                'has-error': firstName.invalid && (firstName.dirty || firstName.touched)
+            }">
             <label for="form-first-name">First Name:</label>
             <input type="text"
                    id="form-first-name"
                    class="form-control"
                    name="firstName"
-                   [ngModel]="email"
-                   (ngModelChange)="email = $event">
+                   #firstName="ngModel"
+                   required
+                   [(ngModel)]="model.firstName">
         </div>
-        <div class="form-group">
+        <div class="form-group"
+             [ngClass]="{
+                'has-success': lastName.valid && (lastName.dirty || lastName.touched),
+                'has-error': lastName.invalid && (lastName.dirty || lastName.touched)
+            }">
             <label for="form-last-name">Last Name:</label>
             <input type="text"
                    id="form-last-name"
                    class="form-control"
                    name="lastName"
-                   ngModel>
+                   #lastName="ngModel"
+                   required
+                   [(ngModel)]="model.lastName">
         </div>
     </fieldset>
-    <div class="form-group">
+    <div class="form-group"
+         [ngClass]="{
+            'has-success': email?.valid && (email?.dirty || email?.touched),
+            'has-error': email?.invalid && (email?.dirty || email?.touched)
+        }">
         <label for="form-email">Email:</label>
         <input type="email"
                id="form-email"
                class="form-control"
                name="email"
-               ngModel>
+               required
+               pattern="[^ @]*@[^ @]*"
+               #email="ngModel"
+               [ngModel]="model.email"
+               (ngModelChange)="model.email = $event">
+        <div class="help-block" *ngIf="email.errors && (email.dirty || email.touched)">
+            <p *ngIf="email.errors.required">E-mail is required</p>
+            <p *ngIf="email.errors.pattern">E-mail must contain at least @ character</p>
+        </div>
+
+        <pre>
+            valid {{f.form.controls.email?.valid}}
+            dirty {{f.form.controls.email?.dirty}}
+            touched {{f.form.controls.email?.touched}}</pre>
     </div>
-    <div class="form-group">
+    <div class="form-group"
+         [ngClass]="{
+            'has-success': password.valid && (password.dirty || password.touched),
+            'has-error': password.invalid && (password.dirty || password.touched)
+        }">
         <label for="form-password">Password:</label>
         <input type="password"
                id="form-password"
                class="form-control"
                name="password"
-               ngModel>
+               #password="ngModel"
+               required
+               minlength="8"
+               [ngModel]="model.password"
+               (ngModelChange)="model.password = $event">
     </div>
-    <div class="form-group">
+    <div class="form-group"
+         [ngClass]="{
+            'has-success': language.valid && (language.dirty || language.touched),
+            'has-error': language.invalid && (language.dirty || language.touched)
+        }">
         <label for="form-lang">Language:</label>
         <select id="form-lang" class="form-control"
                 name="language"
-                ngModel>
+                #language="ngModel"
+                required
+                [ngModel]="model.language"
+                (ngModelChange)="model.language = $event">
             <option value="">Please select a language</option>
             <option *ngFor="let lang of langs" [value]="lang.value">{{lang.name}}</option>
         </select>
@@ -49,5 +92,5 @@
 
     <pre>{{f.value | json}}</pre>
 
-    <button type="submit" class="btn">send</button>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">send</button>
 </form>
