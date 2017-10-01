@@ -1,5 +1,34 @@
 <form name="jokeForm" [formGroup]="form">
-    <input type="text" name="setup" placeholder="setup" #setup value="lalalalal">
-    <input type="text" name="punchline" placeholder="punchline" #punchline  value="loloolol">
-    <button type="button" (click)="onAdd(setup.value, punchline.value)">ADD</button>
+    <div class="form-group"
+         [ngClass]="{
+            'has-success':setup.valid && (setup.dirty || setup.touched),
+            'has-error':setup.invalid && (setup.dirty || setup.touched)
+        }">
+        <input type="text"
+               name="setup"
+               placeholder="setup"
+               formControlName="setup">
+        <div class="block-help"
+             *ngIf="setup.invalid && (setup.dirty || setup.touched)">
+            <p *ngIf="setup.errors.required">setup required</p>
+        </div>
+    </div>
+    <div class="form-group"
+         [ngClass]="{
+            'has-success':punchline.valid && (punchline.dirty || punchline.touched),
+            'has-error':punchline.invalid && (punchline.dirty || punchline.touched)
+        }">
+        <input type="text"
+               name="punchline"
+               placeholder="punchline"
+               formControlName="punchline">
+        <div class="block-help"
+             *ngIf="punchline.invalid && (punchline.dirty || punchline.touched)">
+            <p *ngIf="punchline.errors.required">punchline required</p>
+        </div>
+    </div>
+    <button type="submit"
+            class="btn btn-primary"
+            [disabled]="form.invalid"
+            (click)="onAdd(setup.value, punchline.value)">ADD</button>
 </form>

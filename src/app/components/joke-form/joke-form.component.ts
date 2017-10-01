@@ -1,5 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {FormGroup, FormBuilder} from "@angular/forms";
+import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import {Joke} from "../../domain-model/joke";
 
 // <joke-form> ////////////
@@ -16,12 +16,18 @@ export class JokeFormComponent implements OnInit {
     form: FormGroup;
     @Output() jokeCreated = new EventEmitter<Joke>();
 
+    setup:FormControl = new FormControl('', Validators.required);
+    punchline:FormControl = new FormControl('', Validators.required);
+
     onAdd(setup: string, punchline: string) {
         this.jokeCreated.emit(new Joke(setup, punchline))
     }
 
-    constructor(fb: FormBuilder) {
-        this.form = fb.group({});
+    constructor() {
+        this.form = new FormGroup({
+            setup:this.setup,
+            punchline:this.punchline
+        });
     }
 
     ngOnInit() {
