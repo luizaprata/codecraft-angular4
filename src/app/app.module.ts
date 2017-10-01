@@ -14,9 +14,11 @@ import {CleanPipe} from './pipes/clean.pipe';
 import {ReactiveModelForm2Component} from "./components/reactive-model-form2/reactive-model-form2.component";
 import {TemplateModelFormComponent} from "./components/template-model-form/template-model-form.component";
 import {ReactiveModelFormComponent} from "./components/reactive-model-form/reactive-model-form.component";
-import {EmailService} from "./services/email.service";
 import {OtherService} from "./services/other.service";
-import { InjectionTestComponent } from './components/injection-test/injection-test.component';
+import {InjectionTestComponent} from './components/injection-test/injection-test.component';
+import {SimpleService} from "./services/simple.service";
+import {JokeService} from "./services/joke.service";
+import {AppSettings} from "./app-settings";
 
 @NgModule({
     declarations: [
@@ -37,7 +39,12 @@ import { InjectionTestComponent } from './components/injection-test/injection-te
     imports: [
         BrowserModule, ReactiveFormsModule, FormsModule
     ],
-    providers: [EmailService, OtherService],
+    providers: [
+        SimpleService,
+        OtherService,
+        JokeService,
+        {provide: AppSettings.MAX_JOKES, useValue: 3}
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -3,4 +3,5 @@
     <h1>{{joke.setup | clean:'lala'}}</h1>
     <p [hidden]="joke.hide" class="card-text">{{joke.punchline | clean:'aaa,bbb'}}</p>
     <button class="btn" (click)="joke.toggle()">toggle</button>
+    <button class="btn btn-danger pull-right" (click)="deleteItem()">delete</button>
 </div>

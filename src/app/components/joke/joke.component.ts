@@ -8,7 +8,9 @@ import {
     AfterContentChecked,
     AfterViewInit,
     AfterViewChecked,
-    OnDestroy
+    OnDestroy,
+    Output,
+    EventEmitter
 } from '@angular/core';
 import {Joke} from "../../domain-model/joke";
 
@@ -27,37 +29,45 @@ export class JokeComponent implements
     OnDestroy {
 
     @Input() joke: Joke;
+    @Output() jokeDeleted = new EventEmitter<Joke>();
+
 
     constructor() {
     }
 
-    ngOnChanges(){
+    deleteItem() {
+        this.jokeDeleted.emit(this.joke);
+    }
+
+    ngOnChanges() {
         //console.log('ngOnChanges')
     }
 
-    ngOnInit(){
+    ngOnInit() {
         //console.log('ngOnInit')
     }
 
-    ngDoCheck(){
+    ngDoCheck() {
         //console.log('ngDoCheck')
     }
 
-    ngAfterContentInit(){
+    ngAfterContentInit() {
         //console.log('ngAfterContentInit')
     }
 
-    ngAfterContentChecked(){
+    ngAfterContentChecked() {
         //console.log('ngAfterContentChecked')
     }
-    ngAfterViewInit(){
+
+    ngAfterViewInit() {
         //console.log('ngAfterViewInit')
     }
-    ngAfterViewChecked(){
+
+    ngAfterViewChecked() {
         //console.log('ngAfterViewChecked')
     }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
         //console.log('ngOnDestroy')
     }
 

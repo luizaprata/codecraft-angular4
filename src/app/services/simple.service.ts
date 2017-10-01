@@ -1,10 +1,13 @@
 import {Injectable, Inject} from '@angular/core';
 import {OtherService} from "./other.service";
 
-//@Injectable()// shortcut to inject all parameters of constructor as done below
+@Injectable()// shortcut to inject all parameters of constructor @Inject(OtherService)
+//
 export class SimpleService {
-    constructor(@Inject(OtherService) otherService: OtherService) {
+    public otherService: OtherService;
 
+    constructor(otherService: OtherService) {
+        this.otherService = otherService;
     }
 
 }
