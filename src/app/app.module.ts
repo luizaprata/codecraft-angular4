@@ -14,6 +14,9 @@ import {CleanPipe} from './pipes/clean.pipe';
 import {ReactiveModelForm2Component} from "./components/reactive-model-form2/reactive-model-form2.component";
 import {TemplateModelFormComponent} from "./components/template-model-form/template-model-form.component";
 import {ReactiveModelFormComponent} from "./components/reactive-model-form/reactive-model-form.component";
+import {EmailService} from "./services/email.service";
+import {OtherService} from "./services/other.service";
+import { InjectionTestComponent } from './components/injection-test/injection-test.component';
 
 @NgModule({
     declarations: [
@@ -28,12 +31,13 @@ import {ReactiveModelFormComponent} from "./components/reactive-model-form/react
         CleanPipe,
         ReactiveModelFormComponent,
         ReactiveModelForm2Component,
-        TemplateModelFormComponent
+        TemplateModelFormComponent,
+        InjectionTestComponent
     ],
     imports: [
         BrowserModule, ReactiveFormsModule, FormsModule
     ],
-    providers: [],
+    providers: [EmailService, OtherService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
