@@ -6,17 +6,14 @@
         <input type="search"
                class="form-control"
                placeholder="Enter search string"
-               #search>
+               [formControl]="seachField">
     </div>
-    <button type="button"
-    class="btn btn-primary"
-    (click)="doMusicSearch(search.value)">search</button>
 </form>
 
 <p *ngIf="loading">loading</p>
 
 <ul class="list-group">
-    <li class="list-group-item" *ngFor="let track of results">
+    <li class="list-group-item" *ngFor="let track of results | async">
         <img src="{{track.artworkUrl30}}" alt="">
         <a href="{{track.trackViewUrl}}" target="_blank">{{track.trackName}}</a>
     </li>
