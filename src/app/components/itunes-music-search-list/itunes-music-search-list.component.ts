@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SearchItunesMusicService} from "../../services/search-itunes-music.service";
 import {MusicItem} from "../../domain-model/music-item";
+import {SearchItunesMusicService} from "../../services/search-itunes-music.service";
 
 @Component({
     selector: 'app-itunes-music-search-list',
@@ -9,8 +9,8 @@ import {MusicItem} from "../../domain-model/music-item";
 })
 export class ItunesMusicSearchListComponent implements OnInit {
 
-    results: MusicItem[];
-    loading = false;
+    private results: MusicItem[];
+    private loading = false;
 
     constructor(private itunes: SearchItunesMusicService) {
 
@@ -18,11 +18,11 @@ export class ItunesMusicSearchListComponent implements OnInit {
 
     doMusicSearch(term: string) {
         this.loading = true;
-        this.itunes.search(term).subscribe((data) => {
-            this.loading = false;
-            this.results = data;
-        })
-
+        this.itunes.search(term)
+            .subscribe((data) => {
+                this.loading = false;
+                this.results = data;
+            })
     }
 
     ngOnInit() {

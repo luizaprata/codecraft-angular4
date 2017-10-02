@@ -21,7 +21,7 @@ import {JokeService} from "./services/joke.service";
 import {AppSettings} from "./app-settings";
 import {HttpModule} from "@angular/http";
 import {SearchItunesMusicService} from "./services/search-itunes-music.service";
-import { ItunesMusicSearchListComponent } from './components/itunes-music-search-list/itunes-music-search-list.component';
+import {ItunesMusicSearchListComponent} from './components/itunes-music-search-list/itunes-music-search-list.component';
 
 @NgModule({
     declarations: [
