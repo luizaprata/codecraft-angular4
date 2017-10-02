@@ -1,0 +1,18 @@
+<form action="" class="form-inline">
+    <div class="form-group">
+        <input type="search"
+               class="form-control"
+               placeholder="Enter search string"
+               #search>
+    </div>
+    <button type="button"
+    class="btn btn-primary"
+    (click)="doMusicSearch(search.value)"></button>
+</form>
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let track of results">
+        <img src="{{track.artworkUrl30}}" alt="">
+        <a href="{{track.trackViewUrl}}" target="_blank">{{track.trackName}}</a>
+    </li>
+</ul>

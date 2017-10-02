@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Observable} from "rxjs";
+import {SearchItunesMusicService} from "./services/search-itunes-music.service";
 
 @Component({
     selector: 'app-root',

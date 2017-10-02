@@ -19,6 +19,9 @@ import {InjectionTestComponent} from './components/injection-test/injection-test
 import {SimpleService} from "./services/simple.service";
 import {JokeService} from "./services/joke.service";
 import {AppSettings} from "./app-settings";
+import {HttpModule} from "@angular/http";
+import {SearchItunesMusicService} from "./services/search-itunes-music.service";
+import { ItunesMusicSearchListComponent } from './components/itunes-music-search-list/itunes-music-search-list.component';
 
 @NgModule({
     declarations: [
@@ -34,15 +37,17 @@ import {AppSettings} from "./app-settings";
         ReactiveModelFormComponent,
         ReactiveModelForm2Component,
         TemplateModelFormComponent,
-        InjectionTestComponent
+        InjectionTestComponent,
+        ItunesMusicSearchListComponent
     ],
     imports: [
-        BrowserModule, ReactiveFormsModule, FormsModule
+        BrowserModule, ReactiveFormsModule, FormsModule, HttpModule
     ],
     providers: [
         SimpleService,
         OtherService,
         JokeService,
+        SearchItunesMusicService,
         {provide: AppSettings.MAX_JOKES, useValue: 3}
     ],
     bootstrap: [AppComponent]

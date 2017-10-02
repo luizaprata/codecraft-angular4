@@ -1,7 +1,11 @@
 <div class="card card-block"
      [appCardHover]="{querySelector:'.card-text'}">
-    <h1>{{joke.setup | clean:'lala'}}</h1>
-    <p [hidden]="joke.hide" class="card-text">{{joke.punchline | clean:'aaa,bbb'}}</p>
-    <button class="btn" (click)="joke.toggle()">toggle</button>
-    <button class="btn btn-danger pull-right" (click)="deleteItem()">delete</button>
+    <div class="col-xs-12 col-md-8">
+        <h1>{{joke.setup | clean:'lala'}}</h1>
+        <p [hidden]="joke.hide" class="card-text">{{joke.punchline | clean:'aaa,bbb'}}</p>
+        <button class="btn" (click)="joke.toggle()">toggle</button>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <button class="btn btn-danger pull-right" (click)="deleteItem()">delete</button>
+    </div>
 </div>
