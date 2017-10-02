@@ -19,7 +19,7 @@ import {InjectionTestComponent} from './components/injection-test/injection-test
 import {SimpleService} from "./services/simple.service";
 import {JokeService} from "./services/joke.service";
 import {AppSettings} from "./app-settings";
-import {HttpModule} from "@angular/http";
+import {HttpModule, JsonpModule} from "@angular/http";
 import {SearchItunesMusicService} from "./services/search-itunes-music.service";
 import {ItunesMusicSearchListComponent} from './components/itunes-music-search-list/itunes-music-search-list.component';
 
@@ -41,7 +41,7 @@ import {ItunesMusicSearchListComponent} from './components/itunes-music-search-l
         ItunesMusicSearchListComponent
     ],
     imports: [
-        BrowserModule, ReactiveFormsModule, FormsModule, HttpModule
+        BrowserModule, ReactiveFormsModule, FormsModule, JsonpModule
     ],
     providers: [
         SimpleService,
