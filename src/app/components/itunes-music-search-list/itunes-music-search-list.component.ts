@@ -3,8 +3,7 @@ import {SearchItunesMusicService} from "../../services/search-itunes-music.servi
 import {Observable} from "rxjs";
 import {MusicItem} from "../../domain-model/music-item";
 import {FormControl, Validators} from "@angular/forms";
-import {debounceTime} from "rxjs/operator/debounceTime";
-import {distinctUntilChanged} from "rxjs/operator/distinctUntilChanged";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-itunes-music-search-list',
@@ -16,12 +15,24 @@ export class ItunesMusicSearchListComponent implements OnInit {
     private results: Observable<MusicItem[]>;
     private loading = false;
 
-    constructor(private itunes: SearchItunesMusicService) {
+    constructor(private itunes: SearchItunesMusicService,
+                private route: ActivatedRoute,
+                private router: Router) {
+        this.route.params.subscribe(params => {
+            if (params['term']) {
+                this.doMusicSearch(params['term'])
+            }
+        })
+    }
 
+    onSearch(term: string) {
+        this.router.navigate(['search', {term: term}])
     }
 
     doMusicSearch(term: string) {
         this.loading = true;
+        console.log(':::::', term);
+
         this.results = this.itunes.search(term);
     }
 
@@ -30,10 +41,21 @@ export class ItunesMusicSearchListComponent implements OnInit {
         this.results = this.seachField.valueChanges
             .debounceTime(800)
             .distinctUntilChanged()
-            .do( () => this.loading = true )
-            .map(term => this.itunes.search(term))
+            .do(() => this.loading = true)
+            .map(term => {
+                return this.itunes.search(term)
+            })
             .switch()
-            .do( () => this.loading = false )
+            .do(() => {
+                // this.router.navigate(['search', {term: term}])
+                this.loading = false
+            });
+
+        //this.seachField.valueChanges
+        //    .debounceTime(800)
+        //    .distinctUntilChanged()
+        //    .map(term => this.router.navigate(['search', {term: term}]))
+        //    .do(() => console.log('????'))
     }
 
 }

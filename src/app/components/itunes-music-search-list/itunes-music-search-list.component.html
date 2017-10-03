@@ -16,5 +16,6 @@
     <li class="list-group-item" *ngFor="let track of results | async">
         <img src="{{track.artworkUrl30}}" alt="">
         <a href="{{track.trackViewUrl}}" target="_blank">{{track.trackName}}</a>
+        by <a [routerLink]="['/artist', track.artistId]">{{track.artistName}}</a>
     </li>
 </ul>

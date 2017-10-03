@@ -1,15 +1,21 @@
 <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="">Codecraft Angular4</a>
+    <a class="navbar-brand"
+       [routerLink]="['home']">iTunes Search App
+    </a>
     <ul class="nav navbar-nav">
-        <li class="nav-item active">
-            <a href="" class="nav-link">Home</a>
+        <li class="nav-item"
+            [routerLinkActive]="['active']">
+            <a class="nav-link"
+               [routerLink]="['home']">
+                Home
+            </a>
         </li>
-        <li class="nav-item active">
-            <a href="" class="nav-link">Search</a>
+        <li class="nav-item"
+            [routerLinkActive]="['active']">
+            <a class="nav-link"
+               [routerLink]="['search']">
+                Search
+            </a>
         </li>
     </ul>
 </nav>
-
-<div class="m-t-1">
-
-</div>

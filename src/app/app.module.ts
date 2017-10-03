@@ -22,6 +22,21 @@ import {AppSettings} from "./app-settings";
 import {HttpModule, JsonpModule} from "@angular/http";
 import {SearchItunesMusicService} from "./services/search-itunes-music.service";
 import {ItunesMusicSearchListComponent} from './components/itunes-music-search-list/itunes-music-search-list.component';
+import {Routes, RouterModule} from "@angular/router";
+import {HomeComponent} from './components/home/home.component';
+import {ArtistComponent} from './components/artist/artist.component';
+import {ArtistTrackListComponent} from './components/artist-track-list/artist-track-list.component';
+import {ArtistAlbumListComponent} from './components/artist-album-list/artist-album-list.component';
+
+const routes: Routes = [
+    {path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path: 'find', redirectTo: 'search'},
+    {path: 'home', component: HomeComponent},
+    {path: 'search', component: ItunesMusicSearchListComponent},
+    {path: 'artist/:artistId', component: ArtistComponent},
+    {path: '**', redirectTo: 'home'},
+
+];
 
 @NgModule({
     declarations: [
@@ -38,10 +53,18 @@ import {ItunesMusicSearchListComponent} from './components/itunes-music-search-l
         ReactiveModelForm2Component,
         TemplateModelFormComponent,
         InjectionTestComponent,
-        ItunesMusicSearchListComponent
+        ItunesMusicSearchListComponent,
+        HomeComponent,
+        ArtistComponent,
+        ArtistTrackListComponent,
+        ArtistAlbumListComponent
     ],
     imports: [
-        BrowserModule, ReactiveFormsModule, FormsModule, JsonpModule
+        BrowserModule,
+        ReactiveFormsModule,
+        FormsModule,
+        JsonpModule,
+        RouterModule.forRoot(routes, {useHash: true})
     ],
     providers: [
         SimpleService,
